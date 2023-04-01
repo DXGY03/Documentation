@@ -8,7 +8,7 @@
 }
 
 body{
-    font-family: 'Poppins';
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
    }
    
 .container{
@@ -20,8 +20,6 @@ body{
     text-align: center;
 
 }
-
-
 
 .titule{
     color:#284dc7;
@@ -45,11 +43,10 @@ nav{
 }
 
 nav > a{
-    color: white;
+    color: grey;
     font-weight: 300;
     text-decoration: none;
     margin-right: 10px;
-
 }
 
 .wave{
@@ -73,7 +70,7 @@ header .texts_headers{
 
 .texts_headers h1{
     font-size: 50px;
-    color: orangered;
+    color: rgb(0, 13, 255);
     background-color: white;
 }
 
@@ -95,7 +92,7 @@ header .texts_headers{
 }
 
 .texts-container h3 span{
-    background: #ff9800;
+    background: #5900ff;
     color: white;
     border-radius: 50%;
     display: inline-block;
