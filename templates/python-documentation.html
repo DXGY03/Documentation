@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{%block body%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = './css/python.css')}}">
+    
+    <title>Python</title>
+</head>
+<body>
+
+<div class="row">
+ 
+    <div class="col-md-5">
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %} 
+           
+    <div class="card card-body">
+        <form action="\documentation" method="POST">
+
+            <div class="form-group">
+            <input type="text" class="form-control" name="title" placeholder="Write your title" required>
+            </div>
+
+            <div class="form-group">
+            <div class="input1">
+            <textarea class="form-control" name="doc" rows="4" cols="30" placeholder="Documentation or link" required></textarea>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">save</button>
+            </div> 
+
+        </form>
+        <img class="ilustration" src="https://i.pinimg.com/564x/f2/4e/84/f24e84008957bb37b261528e469d700b.jpg" alt="">
+    </div>        
+    </div>
+    <div class="col-md-7">
+        <h1>CONTENTS</h1>
+        <table id="pythontable" class="table table-striped table-bordered bg-white table-5m ">
+            <thead>
+                <tr>
+                    <th class="title">Title</th>
+                    <th class="documentation">Documentation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for documentation in documentations %}
+                <tr>
+                    <td>{{ documentation[0] }}</td>
+                    <td>{{ documentation[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready( function () {
+    $('#pythontable').DataTable();
+} );
+</script>
+
+</html>
+
+{% endblock %}
